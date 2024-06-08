@@ -525,6 +525,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1590444767053063574, guid: 39982df4528b64946ad7db95156939ea,
         type: 3}
+      propertyPath: Angel
+      value: 
+      objectReference: {fileID: 241191796}
+    - target: {fileID: 1590444767053063574, guid: 39982df4528b64946ad7db95156939ea,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1848678645}
@@ -543,6 +548,36 @@ PrefabInstance:
       propertyPath: catchDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1590444767053063574, guid: 39982df4528b64946ad7db95156939ea,
+        type: 3}
+      propertyPath: spawnpoints.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590444767053063574, guid: 39982df4528b64946ad7db95156939ea,
+        type: 3}
+      propertyPath: spawnpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 2101292462}
+    - target: {fileID: 1590444767053063574, guid: 39982df4528b64946ad7db95156939ea,
+        type: 3}
+      propertyPath: spawnpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 487850447}
+    - target: {fileID: 1590444767053063574, guid: 39982df4528b64946ad7db95156939ea,
+        type: 3}
+      propertyPath: spawnpoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 2015860962}
+    - target: {fileID: 1590444767053063574, guid: 39982df4528b64946ad7db95156939ea,
+        type: 3}
+      propertyPath: spawnpoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 175010416}
+    - target: {fileID: 1590444767053063574, guid: 39982df4528b64946ad7db95156939ea,
+        type: 3}
+      propertyPath: spawnpoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 313416871}
     - target: {fileID: 2167669253265162595, guid: 39982df4528b64946ad7db95156939ea,
         type: 3}
       propertyPath: m_Name
@@ -1125,6 +1160,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pSys: {fileID: 814994619}
+  spawnpoints:
+  - {fileID: 2101292462}
+  - {fileID: 487850447}
+  - {fileID: 2015860962}
+  - {fileID: 175010416}
+  - {fileID: 313416871}
+  Angel: {fileID: 241191796}
 --- !u!135 &593860909
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4486,7 +4528,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 1
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -4554,7 +4596,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1001 &2145338702
 PrefabInstance:
   m_ObjectHideFlags: 0
