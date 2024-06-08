@@ -13,6 +13,7 @@ public class WeepingAngels : MonoBehaviour
     [SerializeField] private Camera playerCam;
     [SerializeField] private float aiSpeed, catchDistance;
     [SerializeField] private Renderer angelModelRenderer;
+    [SerializeField] private AudioSource scratchSound;
 
     private void Update()
     {
@@ -26,17 +27,26 @@ public class WeepingAngels : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.position);
 
-
         if (GeometryUtility.TestPlanesAABB(planes, angelModelRenderer.bounds))
         {
             ai.speed = 0;
             ai.SetDestination(transform.position);
+
+            if (scratchSound.isPlaying)
+            {
+                scratchSound.Stop();
+            }
         }
-        else if (!GeometryUtility.TestPlanesAABB(planes, angelModelRenderer.bounds))
+        else
         {
             ai.speed = aiSpeed;
             dest = player.position;
             ai.destination = dest;
+
+            if (!scratchSound.isPlaying)
+            {
+                scratchSound.Play();
+            }
 
             if (distance <= catchDistance)
             {
@@ -45,7 +55,7 @@ public class WeepingAngels : MonoBehaviour
         }
     }
 
-    private void OnDestroy() 
+    private void OnDestroy()
     {
         Debug.Log("patladım");
     }
