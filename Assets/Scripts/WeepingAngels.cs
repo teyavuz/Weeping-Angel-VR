@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class WeepingAngels : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class WeepingAngels : MonoBehaviour
     [SerializeField] private float aiSpeed, catchDistance;
     [SerializeField] private Renderer angelModelRenderer;
     [SerializeField] private AudioSource scratchSound;
-
+    [SerializeField] private GameObject deathCanvas;
     private void Update()
     {
         AngelMovement();
@@ -51,6 +52,8 @@ public class WeepingAngels : MonoBehaviour
             if (distance <= catchDistance)
             {
                 Debug.Log("öldün");
+                deathCanvas.SetActive(true);
+                StartCoroutine(LastCoroutine());
             }
         }
     }
@@ -58,5 +61,10 @@ public class WeepingAngels : MonoBehaviour
     private void OnDestroy()
     {
         Debug.Log("patladım");
+    }
+
+    IEnumerator LastCoroutine () {
+        yield return new WaitForSeconds (4f);
+        SceneManager.LoadScene(0);
     }
 }
